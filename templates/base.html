@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Medium Style Editor -->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+   
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <title>SuperHuman</title>
+</head>
+<body>
+    <nav role="navigation" id="navbar"  class="navbar navbar-expand-lg navbar-light bg-light techfont mynav">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Super Human</a>
+        
+        <ul class='nav navbar-nav navbar-right '>
+            {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 <li class="navbar-light">
+                     <a class="nav-link" href="#">Post</a>
+                 </li>
+                  <li class="navbar-light">
+                     <a class="nav-link" href="#">Home</a>
+                 </li>
+                 <li class="navbar-light">
+                     <a class="nav-link" href="#">profile</a>
+                 </li>
+            <li>
+                <a class="nav-link" href="{% url 'accounts:logout' %}">Log Out</a>
+            </li>
+
+            <li>
+                <a class='nav-link' href = "#">About Us</a>
+            </li>
+            {% else %}
+            
+           
+            <li><a class="nav-link" href="{% url 'accounts:login' %}">Log In</a></li>
+            <li><a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a></li>
+            <li>
+                <a class='nav-link' href = "#">About Us</a>
+            </li>
+            {% endif %}
+        </div>
+        </ul>
+    </nav>
+    <div class="container mycontent">
+    {% block content %}
+    
+    {% endblock content %}
+    </div>
+</body>
+</html>
