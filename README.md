@@ -22,7 +22,7 @@ How to add login with django?
 
 How to add logout with django?
 
-Learn about the new version of Django and the python as well in a short time. If you are beginner than this course will provide you the most possible key points which will you take in your mind for the future in the web developing.This will be the short course but I want you guys to participate in this course and If you guys want me to tell you anything which you want to do my Django than tell me in the comments session. I will tell you and If I feel that your question is really can help so many other people than I probably will make video on the solution of that question. Thank You!
+Learn about the new version of Django and the python as well in a short time. If you are beginner than this course will provide you the most possible key points which will you take in your mind for the future in the web developing.This is short course but I want you guys to participate in this course and If you guys want me to tell you anything which you want to do with Django than tell me in the comments session. I will tell you and If I feel that your question can help so many other people than I probably will make video on the solution of that question. Thank You!
 
 
 Software we are going to use in this course will be following below and there link are also where you can download :
