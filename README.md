@@ -9,10 +9,10 @@ Build website with complete professional level functionalities.
 
 Tools
 
-Django 3.0.3
-python 3.8.5
-Visual Studio code
-Anaconda prompt 
+Django 3.0.3,
+python 3.8.5,
+Visual Studio code,
+Anaconda prompt, 
 bootstap
 
 
