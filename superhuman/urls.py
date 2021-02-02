@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
-from . import views
+from . import views, settings
 
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -26,7 +28,13 @@ urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     path('test',views.TestView.as_view(),name='test'),
     path('thank',views.ThanksView.as_view(),name='thank'),
-    path('',views.HomeView.as_view(),name = 'home'),
+    path('',views.HomeView.as_view(),name = 'home'),  
+    path('products/', include('products.urls',namespace = 'products')),
+    path('search/', include('search.urls',namespace = 'search')),
+    path('carts/', include('carts.urls',namespace = 'carts')),
     path('home',views.HomeView.as_view(),name = 'home')
     
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
