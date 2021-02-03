@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='container' style='margin-top:30px'>
+{{product}}<br>
+{{product.description}}<br>
+{% if product.image %}
+<img src="{{product.image.url }}" alt="image not found">
+{% endif %}
+
+<br>
+{% include 'products/snippets/update_cart.html' with product=object cart=cart %}
+</div>
+{% endblock content %}

@@ -14,51 +14,51 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/master.css' %}">
-   
+    {% comment %} font awsesome {% endcomment %}
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <title>SuperHuman</title>
 </head>
 <body>
-    <nav role="navigation" id="navbar"  class="navbar navbar-expand-lg navbar-light bg-light techfont mynav">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">Super Human</a>
-        
-        <ul class='nav navbar-nav navbar-right '>
-            {% if user.is_authenticated %}
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                 <li class="navbar-light">
-                     <a class="nav-link" href="#">Post</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  
+    <a class="navbar-brand" href="{% url 'home' %}">Super Human</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+ {% if user.is_authenticated %}
+          <li class="navbar-light">
+                     <a class="nav-link" href="{% url 'products:product_list' %}">Products</a>
                  </li>
-                  <li class="navbar-light">
-                     <a class="nav-link" href="#">Home</a>
-                 </li>
-                 <li class="navbar-light">
-                     <a class="nav-link" href="#">profile</a>
-                 </li>
-            <li>
+                   
+                 <li>
                 <a class="nav-link" href="{% url 'accounts:logout' %}">Log Out</a>
             </li>
-
-            <li>
-                <a class='nav-link' href = "#">About Us</a>
-            </li>
-            {% else %}
-            
-           
-            <li><a class="nav-link" href="{% url 'accounts:login' %}">Log In</a></li>
-            <li><a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a></li>
-            <li>
-                <a class='nav-link' href = "#">About Us</a>
-            </li>
-            {% endif %}
-        </div>
-        </ul>
-    </nav>
-    <div class="container mycontent">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    <form methor='GET' action="{%url 'search:query'%}" class="form-inline my-2 my-lg-0"> 
+<input class="form-control mr-sm-2" type='text' placeholder = 'search' name='q' value={{request.GET.q}}>
+<button class='btn btn-success' type='submit'>search</button>
+</form>
+      {% else %}
+      <li><a class="nav-link" href="{% url 'accounts:login' %}">Log In</a></li>
+       <li><a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a></li>
+    </ul>
+  </div>
+      {% endif %}
+      <li><a class="nav-link" href="{% url 'carts:home' %}">{{request.session.cart_total}} <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+</a></li>
+</nav>
+<div class='container'>
     {% block content %}
     
     {% endblock content %}
+</div>
     </div>
 </body>
 </html>
